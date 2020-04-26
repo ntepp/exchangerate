@@ -40,6 +40,7 @@ public class TransactionService {
 		
 		String key = tr.getBaseCurrency();
 		rFromApi = redisRepository.findById(key);
+		logger.info("exchangeratesapi.io response {}", rFromApi);
 		if(Objects.isNull(rFromApi)) {
 			response = restTemplate.getForEntity(apiUrl , String.class);
 			rFromApi = response.getBody().toString();
@@ -47,7 +48,7 @@ public class TransactionService {
 		}
 		
 		JSONObject resultJ = new JSONObject(rFromApi);
-		BigDecimal baseAmounExch = resultJ.getJSONObject("rates").getBigDecimal(tr.getBaseCurrency());
+		BigDecimal baseAmounExch = new BigDecimal(1.0);
 		BigDecimal targetAmounExch = resultJ.getJSONObject("rates").getBigDecimal(tr.getTargetCurrency());
 		tr.setExchangeRate(targetAmounExch.divide(baseAmounExch, 5, RoundingMode.HALF_UP));
 		tr.setTargetAmount(tr.getExchangeRate().multiply(tr.getBaseAmount()));
@@ -55,7 +56,7 @@ public class TransactionService {
 		
 		transactionRepository.save(tr);
 	
-		logger.info("exchangeratesapi.io response {}", rFromApi);
+		
 		
 		return tr;
 	}
