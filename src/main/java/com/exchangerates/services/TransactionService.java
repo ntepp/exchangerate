@@ -2,7 +2,9 @@ package com.exchangerates.services;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import org.json.JSONObject;
@@ -56,5 +58,11 @@ public class TransactionService {
 		logger.info("exchangeratesapi.io response {}", rFromApi);
 		
 		return tr;
+	}
+	
+	public List<Transaction> getAll(){
+		List<Transaction> transactionL = new ArrayList<Transaction>();
+		transactionRepository.findAll().iterator().forEachRemaining(transactionL::add);
+		return transactionL;
 	}
 }

@@ -1,0 +1,15 @@
+body {
+	margin: 25px;
+}
+
+.block-exch {
+	-webkit-box-shadow: 4px 4px 5px -6px #222;
+	-moz-box-shadow: 4px 4px 5px -6px #222;
+	box-shadow: 4px 4px 5px -6px #222;
+	padding: 15px;
+}
+
+div.spinner-border {
+	display: flex;
+	margin-left: 5px;
+}

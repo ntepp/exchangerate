@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Rate Exchange</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="text-center">
+	<div class="col-md-5 block-exch  border rounded">
+	
+		<form id="exchangeForm" th:object="${transaction}">
+			<div class="row form-inline m-auto">
+				<div class="form-group mx-sm-3 mb-2">
+					<label for="baseAmount" class="sr-only">Base amount</label> <input
+						type="number" class="form-control" id="baseAmount"
+						placeholder=""  min="0" th:field="*{baseAmount}" unkeyup="updateTarget()" required>
+				</div>
+				<div class="form-group mx-sm-3 mb-2">
+					<label for="baseCurrency" class="sr-only">Base Currency</label> 
+					<select class="form-control" id="baseCurrency" name="baseCurrency">
+					<th:block th:each="item: ${currencies}">
+				      <option th:text="${item.key} +' (' +${item.value} +')'" th:value="${item.value}" th:attr="selected=${item.value == 'USD'}? 'selected'"></option>
+				     </th:block>
+				    </select>
+				</div>
+				
+			</div>
+			
+			<div class="row form-inline m-auto">
+				<div class="form-group mx-sm-3 mb-2">
+					<label for="targetAmount" class="sr-only">Target amount</label> <input
+						type="number" class="form-control" id="targetAmount"
+						placeholder="" min="0" th:field="*{targetAmount}">
+				</div>
+				<div class="form-group mx-sm-3 mb-2">
+					<label for="targetCurrency" class="sr-only">Base Currency</label> 
+					<select class="form-control" id="targetCurrency" name="targetCurrency">
+				      <th:block th:each="item: ${currencies}">
+				      	<option th:text="${item.key} +' (' +${item.value} +')'" th:value="${item.value}" th:attr="selected=${item.value == 'GBP'}? 'selected'"></option>
+				      </th:block>
+				    </select>
+				</div>
+				
+			</div>
+			<!-- <div class="spinner-border visible" role="status"></div> -->
+			
+		</form>
+	</div>
+	<div class="col-md-7">
+		
+	</div>
+</body>
+
+<script type="text/javascript" src="js/jquery-3.5.0.min.js"></script>
+<script type="text/javascript" src="js/home.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</html>
