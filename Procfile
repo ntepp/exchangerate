@@ -1,1 +1,1 @@
-web: java -jar exchangerates/target/exchangerates.1.0.jar --server.port=$PORT
+web: java -jar target/exchangerates.1.0.jar --server.port=$PORT
