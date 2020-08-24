@@ -5,6 +5,8 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisPassword;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
@@ -20,11 +22,19 @@ public class appConfiguration {
 
 	@Value("${spring.datasource.password}")
 	private String dbPassword;
+	
+	@Value("${spring.redis.host}")
+	private String redisCloudUrl;
+	@Value("${spring.redis.password}")
+	private String redisPassword;
+	@Value("${spring.redis.port}")
+	private String redisPort;
 
 	@Bean
 	JedisConnectionFactory jedisConnectionFactory() {
-		JedisConnectionFactory jedisConFactory = new JedisConnectionFactory();
-		return jedisConFactory;
+		 RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration(redisCloudUrl, Integer.parseInt(redisPort));
+		 redisStandaloneConfiguration.setPassword(RedisPassword.of(redisPassword));
+	        return new JedisConnectionFactory(redisStandaloneConfiguration);
 	}
 
 	@Bean
