@@ -6,4 +6,11 @@ Using the https://exchangeratesapi.io API as our data source for currency rates,
 - post an exchange rate transaction request by calling an API endpoint
 - calculate the converted amount based on the provided source/target currencies
 - store this transaction in the database
+- Caching of the exchange rates using redis for a predefined period of time
 - return the transaction information back to the user in json format
+
+## Heroku Deployment
+
+The application is deployed on Hekou [exch-rates](https://exch-rates.herokuapp.com/). 
+
+Simple [![DEMO](http://img.youtube.com/vi/z6tgKQtHa8A/0.jpg)](http://www.youtube.com/watch?v=z6tgKQtHa8A)
