@@ -11,8 +11,8 @@ Using the https://exchangeratesapi.io API as our data source for currency rates,
 
 ## Heroku Deployment
 
-The application is deployed on Hekou [exch-rates](https://exch-rates.herokuapp.com/). 
+The application is deployed on Hekou [https://exch-rates.herokuapp.com/](https://exch-rates.herokuapp.com/). 
 
-Simple DEMO on Youtube
+Simple DEMO
 
-[![DEMO](http://img.youtube.com/vi/z6tgKQtHa8A/0.jpg)](http://www.youtube.com/watch?v=z6tgKQtHa8A)
+![](demo/rate-exchange-spring-boot-redis.gif)
