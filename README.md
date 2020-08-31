@@ -13,4 +13,6 @@ Using the https://exchangeratesapi.io API as our data source for currency rates,
 
 The application is deployed on Hekou [exch-rates](https://exch-rates.herokuapp.com/). 
 
-Simple [![DEMO](http://img.youtube.com/vi/z6tgKQtHa8A/0.jpg)](http://www.youtube.com/watch?v=z6tgKQtHa8A)
+Simple DEMO on Youtube
+
+[![DEMO](http://img.youtube.com/vi/z6tgKQtHa8A/0.jpg)](http://www.youtube.com/watch?v=z6tgKQtHa8A)
